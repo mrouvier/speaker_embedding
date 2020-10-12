@@ -347,7 +347,7 @@ def train(args):
         feats = feats.to(f'cuda:{model.device_ids[0]}')
         iden = torch.LongTensor(iden).to(f'cuda:{model.device_ids[0]}')
 
-        preds = model(feats, iden)
+        preds = model(feats)
         loss = criterion(preds, iden)
         optimizer.zero_grad()
         loss.backward()
